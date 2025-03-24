@@ -15,6 +15,22 @@
 //     name: "Leo",
 //     type: "Cat"
 
+// const adventurer = {
+//     name: "Robin",
+//     health: 10,
+//     inventory: ["sword", "potion", "artifact"],
+//     companion: {
+//         name: "Leo",
+//         type: "Cat",
+//         companion: {
+//             name: "Frank",
+//             type: "Flea",
+//             belongings: ["small hat", "sunglasses"]
+//         }
+//     }
+//     }
+// console.log(adventurer.companion.companion.belongings);
+
 const adventurer = {
     name: "Robin",
     health: 10,
@@ -27,6 +43,12 @@ const adventurer = {
             type: "Flea",
             belongings: ["small hat", "sunglasses"]
         }
+    },
+    roll(mod = 0) {
+        const result = Math.floor(Math.random() * 20) + 1 + mod;
+        console.log(`${this.name} rolled a ${result}.`);
     }
-    }
-    // console.log(adventurer.companion.companion.belongings);
+}
+adventurer.roll();      // Example Output: "Robin rolled a 14."
+adventurer.roll(2);      // Example Output: "Robin rolled a 17." (With a modifier of +2)
+adventurer.roll(-1);     // Example Output: "Robin rolled a 10." (With a modifier of -1)
